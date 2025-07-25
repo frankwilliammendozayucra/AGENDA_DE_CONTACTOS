@@ -134,7 +134,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">📒 Agenda de Contactos Inteligente</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">📒 Agenda de Contactos </div>', unsafe_allow_html=True)
 
 if "agenda" not in st.session_state:
     st.session_state.agenda = HashMap()
@@ -219,3 +219,4 @@ with tab4:
     else:
         st.info("Aún no hay contactos registrados.")
     st.markdown('</div>', unsafe_allow_html=True)
+
