@@ -1,8 +1,5 @@
 import streamlit as st
 
-# ------------------------
-# MODELO DE DATOS
-# ------------------------
 class Contacto:
     def __init__(self, nombre, telefono, imagen=None):
         self.nombre = nombre
@@ -53,9 +50,6 @@ class HashMap:
                 todos.append((i, contacto))
         return todos
 
-# ------------------------
-# VALIDACIÓN DE TELÉFONOS
-# ------------------------
 CODIGOS_VALIDOS = {
     '+51': 'Perú',
     '+52': 'México',
@@ -80,9 +74,6 @@ def es_telefono_valido(telefono: str) -> tuple[bool, str]:
         return False, "⚠️ Código de país no permitido"
     return False, "⚠️ Número inválido: debe ser nacional (9 dígitos desde 9) o internacional válido (+código país)"
 
-# ------------------------
-# INTERFAZ CON STREAMLIT
-# ------------------------
 
 st.set_page_config(page_title="Agenda de Contactos", layout="centered", page_icon="📞")
 
@@ -141,9 +132,6 @@ if "agenda" not in st.session_state:
 
 tab1, tab2, tab3, tab4 = st.tabs(["➕ Agregar", "🔍 Buscar", "🗑️ Eliminar", "📋 Ver Todo"])
 
-# -----------------------------
-# TAB 1: Agregar contacto
-# -----------------------------
 with tab1:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("➕ Agrega o actualiza un contacto")
@@ -165,9 +153,6 @@ with tab1:
                 st.success(f"{resultado}\n✅ {mensaje}")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# -----------------------------
-# TAB 2: Buscar contacto
-# -----------------------------
 with tab2:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🔍 Buscar un contacto")
@@ -182,9 +167,6 @@ with tab2:
             st.warning("No se encontró ese contacto.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-# -----------------------------
-# TAB 3: Eliminar contacto
-# -----------------------------
 with tab3:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("🗑️ Eliminar un contacto")
@@ -194,9 +176,6 @@ with tab3:
         st.info(resultado)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# -----------------------------
-# TAB 4: Mostrar todos
-# -----------------------------
 with tab4:
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.subheader("📋 Lista completa de contactos")
